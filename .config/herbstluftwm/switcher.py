@@ -27,7 +27,7 @@ def main():
 
     if args.value == "laptop":
         subprocess.run(
-            args=["python", "/home/pth/pallisupercoding/fontsize/fontsize.py", "8"]
+            args=["python", "/home/pth/pallisupercoding/fontsize/fontsize.py", "10"]
         )
     elif args.value == "desktop":
         subprocess.run(
@@ -40,10 +40,10 @@ def main():
     os.rename("other_autostart", "autostart")
     os.rename("temp_autostart", "other_autostart")
 
-    # os.chdir("/home/pth/.config/rofi")
-    # os.rename("config.rasi", "temp_config.rasi")
-    # os.rename("other_config.rasi", "config.rasi")
-    # os.rename("temp_config.rasi", "other_config.rasi")
+    os.chdir("/home/pth/.config/rofi")
+    os.rename("config.rasi", "temp_config.rasi")
+    os.rename("other_config.rasi", "config.rasi")
+    os.rename("temp_config.rasi", "other_config.rasi")
 
 
 if __name__ == "__main__":

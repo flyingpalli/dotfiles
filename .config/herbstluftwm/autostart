@@ -133,8 +133,8 @@ hc set frame_normal_opacity 0
 hc set frame_transparent_width 0
 hc set frame_gap 0
 
-hc attr theme.title_height 57
-hc attr theme.title_font 'JetBrains Mono:pixelsize=20'  # example using Xft
+hc attr theme.title_height 77
+hc attr theme.title_font 'JetBrains Mono:pixelsize=30'  # example using Xft
 # hc attr theme.title_font '-*-fixed-medium-r-*-*-13-*-*-*-*-*-*-*'
 hc attr theme.padding_top 3  # space below the title's baseline (i.e. text depth)
 hc attr theme.active.color '#181825ff'
