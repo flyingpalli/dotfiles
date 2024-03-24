@@ -21,6 +21,7 @@ sudo apt install stow
 Checkout this repo in your $HOME directory using git
 ```sh
 git clone git@github.com:flyingpalli/dotfiles.git
+cd dotfiles
 ```
 
 Then add symlinks with GNU stow
