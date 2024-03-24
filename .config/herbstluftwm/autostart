@@ -19,7 +19,14 @@ hc spawn sh ~/.config/polybar/laptop-launch.sh
 # hc set_monitors 1920x1080+0+0 1920x1080+2560+0
 # or simply:
 hc detect_monitors
-xlayoutdisplay -p eDP-1
+xrandr \
+ --dpi 169 \
+ --output eDP-1 --mode 2560x1600 --rate 60 --pos 0x0 --primary \
+ --output HDMI-1 --off \
+ --output DP-1 --off \
+ --output DP-2 --off
+echo "Xft.dpi: 169" | xrdb -merge
+# xlayoutdisplay -p eDP-1
 
 # remove all existing keybindings
 hc keyunbind --all

@@ -1,0 +1,92 @@
+alias ll='ls -la'
+alias la='ls -A'
+alias cd='z'
+
+# Password manager
+alias kee='tresor ~/Database.kdbx'
+
+# Vim just because as well
+alias vim='nvim'
+alias fvim='nvim $(fzf)'
+
+# Herbstclient
+alias hc='herbstclient'
+alias laptop='~/.config/herbstluftwm/switcher.py laptop && herbstclient reload'
+alias desktop='~/.config/herbstluftwm/switcher.py desktop && herbstclient reload'
+
+# Uni
+alias uni='cd ~/studium/24sose'
+# alias algfetch='wget -O ~/studium/algebra/AlgebraSkript.pdf -e robots=off -A pdf -r -l1 https://www.math.lmu.de/\~axr/ALG-2023-24.pdf'
+# alias algebra='open ~/studium/algebra/AlgebraSkript.pdf'
+# alias ana='open ~/studium/ana_i/ana_skript.pdf'
+# alias linalg='open ~/studium/algebra/LA-2022-23.pdf'
+# alias algu='open ~/studium/algebra/ueb/*.pdf(om[1]) && c ~/studium/algebra/ueb/latex_exercises'
+# alias numerik='open ~/studium/numerik/deutschesSkriptNum.pdf'
+# alias bs='open ~/studium/bs/VorlesungsskriptBetriebssysteme.pdf'
+# alias bsu='open ~/studium/bs/ueb/*.pdf(om[1]) && c ~/studium/bs/ueb/latex_exercises'
+# alias anau='pushd && cd ~/studium/ana_i/ueb/*(/om[1]) && open *.pdf(om[1]) && c latex_exercise/ && popd'
+
+# VSCode
+alias c='code'
+alias c.='code .'
+
+# Git
+alias g='git'
+
+function mux() {
+    if [[ -n '$@' ]]; then
+        tmux $@
+        return
+    fi
+
+    tmux attach 2>/dev/null
+    if [[ $? -eq 0 ]]; then
+        return
+    fi
+    if [[ -z '$TMUX' ]]; then
+        tmux
+    else
+        echo "You're already in tmux!"
+    fi
+}
+
+# Glow
+alias glow='glow -s ~/pallisupercoding/github/glow/mocha.json'
+
+# Cambridge CLI
+alias cambridge='python ~/pallisupercoding/cambridge-cli/cambridge.py'
+
+# # Linguee CLI
+# alias linguee='python ~/pallisupercoding/linguee-cli/linguee.py'
+
+# Control bluetooth
+alias blue='bluetuith'
+
+# Toggle opacity between 0.85 and 1
+alias opacity='~/pallisupercoding/opacity/opacity.py'
+
+# Toggle fontsize between 8 and 11
+alias fontsize='~/pallisupercoding/fontsize/fontsize.py'
+
+# Spcietify
+alias spicetify='~/.spicetify/spicetify'
+alias spot='~/.spot.sh'
+
+# Grip
+alias grip='open http://localhost:6419 && grip'
+
+# Controls
+alias restart='sudo shutdown -r now'
+alias shutdown='sudo shutdown -P now'
+
+# Weather
+alias weather='curl wttr.in/\?2QF'
+
+# Zathura
+alias zath='~/.zathura.sh'
+
+alias palette='vim ~/palette'
+
+alias sound='pulsemixer'
+
+alias wifi='nmtui'
