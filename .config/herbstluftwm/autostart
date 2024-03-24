@@ -19,6 +19,7 @@ hc spawn sh ~/.config/polybar/laptop-launch.sh
 # hc set_monitors 1920x1080+0+0 1920x1080+2560+0
 # or simply:
 hc detect_monitors
+xlayoutdisplay -p eDP-1
 
 # remove all existing keybindings
 hc keyunbind --all
@@ -133,7 +134,7 @@ hc set frame_normal_opacity 0
 hc set frame_transparent_width 0
 hc set frame_gap 0
 
-hc attr theme.title_height 77
+hc attr theme.title_height 30
 hc attr theme.title_font 'JetBrains Mono:pixelsize=30'  # example using Xft
 # hc attr theme.title_font '-*-fixed-medium-r-*-*-13-*-*-*-*-*-*-*'
 hc attr theme.padding_top 3  # space below the title's baseline (i.e. text depth)
@@ -161,7 +162,7 @@ hc attr theme.background_color '#1e1e2e'
 
 hc set window_gap 0
 hc set frame_padding 0
-hc set smart_window_surroundings off
+hc set smart_window_surroundings on
 hc set smart_frame_surroundings on
 hc set mouse_recenter_gap 0
 
