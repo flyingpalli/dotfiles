@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-# laptop
+# desktop
 # this is a simple config for herbstluftwm
 
 hc() {
@@ -13,20 +13,20 @@ xsetroot -solid '#1e1e2e'
 
 compton &
 nitrogen --restore &
-hc spawn sh ~/.config/polybar/laptop-launch.sh
+hc spawn sh ~/.config/polybar/desktop-launch.sh
 
 # do multi monitor setup here, e.g.:
-# hc set_monitors 1920x1080+0+0 1920x1080+2560+0
-# or simply:
 hc detect_monitors
+hc set_monitors 1920x1080+0+0 1920x1080+2560+0
 xrandr \
- --dpi 169 \
- --output eDP-1 --mode 2560x1600 --rate 60 --pos 0x0 --primary \
- --output HDMI-1 --off \
+ --dpi 96 \
+ --output eDP-1 --mode 2560x1600 --rate 60 --pos 0x0 \
+ --output HDMI-1 --mode 1920x1080 --rate 75 --pos 2560x0 --primary \
  --output DP-1 --off \
  --output DP-2 --off
-echo "Xft.dpi: 169" | xrdb -merge
-# xlayoutdisplay -p eDP-1
+hc remove_monitor 0
+
+echo "Xft.dpi: 96" | xrdb -merge
 
 # remove all existing keybindings
 hc keyunbind --all
@@ -37,8 +37,10 @@ Mod=Mod4   # Use the super key as the main modifier
 hc keybind $Mod-Shift-q quit
 hc keybind $Mod-Shift-r reload
 hc keybind $Mod-Shift-c close
+hc keybind Ctrl-q close
 hc keybind $Mod-Return spawn "${TERMINAL:-alacritty}" # use your $TERMINAL with alacritty as fallback
 hc keybind $Mod-p spawn rofi -show drun
+hc keybind $Mod-s spawn flameshot gui
 
 # basic movement in tiling and floating mode
 # focusing clients
@@ -99,7 +101,7 @@ hc keybind $Mod-comma  use_index -1 --skip-visible
 
 # layouting
 hc keybind $Mod-r remove
-hc keybind $Mod-s floating toggle
+# hc keybind $Mod-s floating toggle
 hc keybind $Mod-f fullscreen toggle
 hc keybind $Mod-Shift-f set_attr clients.focus.floating toggle
 hc keybind $Mod-Shift-m set_attr clients.focus.minimized true
@@ -141,8 +143,8 @@ hc set frame_normal_opacity 0
 hc set frame_transparent_width 0
 hc set frame_gap 0
 
-hc attr theme.title_height 30
-hc attr theme.title_font 'JetBrains Mono:pixelsize=30'  # example using Xft
+hc attr theme.title_height 14
+hc attr theme.title_font 'JetBrains Mono:pixelsize=14'  # example using Xft
 # hc attr theme.title_font '-*-fixed-medium-r-*-*-13-*-*-*-*-*-*-*'
 hc attr theme.padding_top 3  # space below the title's baseline (i.e. text depth)
 hc attr theme.active.color '#181825ff'

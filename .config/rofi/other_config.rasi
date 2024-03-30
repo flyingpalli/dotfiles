@@ -2,13 +2,17 @@ configuration{
     // modi: "run,drun,window,";
     modi: "drun";
     font: "JetBrains Mono";
+    dpi: 169;
     icon-theme: "Oranchelo";
     show-icons: true;
     terminal: "alacritty";
     drun-display-format: "{icon} {name}";
     location: 0;
-    yoffset: -300;
+    yoffset: -550;
     xoffset: 0;
+    window {
+        width: 1000px;
+    }
     disable-history: false;
     hide-scrollbar: true;
     display-drun: "DRUN";

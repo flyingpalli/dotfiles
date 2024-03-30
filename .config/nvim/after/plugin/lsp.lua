@@ -12,6 +12,8 @@ lsp.ensure_installed({
 
 require 'lspconfig'.hls.setup {}
 
+require 'lspconfig'.gopls.setup {}
+
 require 'lspconfig'.pylsp.setup({
     pylsp = {
         plugins = {
@@ -27,7 +29,7 @@ require 'lspconfig'.pylsp.setup({
 })
 
 require 'lspconfig'.marksman.setup({
-    filtypes = { "markdown", "markdown.mdx" }
+    filetypes = { "markdown", "markdown.mdx" }
 })
 
 

@@ -89,4 +89,4 @@ alias palette='vim ~/palette'
 
 alias sound='pulsemixer'
 
-alias wifi='nmtui'
+alias wifi='networkmanager_dmenu'
