@@ -19,12 +19,12 @@ source $HOME/.zsh_aliases
 export PATH="$PATH:$HOME/scripts"
 
 source ~/repos/zsh/zsh-autocomplete/zsh-autocomplete.plugin.zsh
-# bindkey '\t' menu-select "$terminfo[kcbt]" menu-select
-# bindkey -M menuselect '\t' menu-complete "$terminfo[kcbt]" reverse-menu-complete
-# zstyle '*:compinit' arguments -D -i -u -C -w
-# zstyle ':autocomplete:*complete*:*' insert-unambiguous yes
-# zstyle ':autocomplete:*history*:*' insert-unambiguous yes
-# zstyle ':autocomplete:menu-search:*' insert-unambiguous yes
+bindkey '\t' menu-select "$terminfo[kcbt]" menu-select
+bindkey -M menuselect '\t' menu-complete "$terminfo[kcbt]" reverse-menu-complete
+zstyle '*:compinit' arguments -D -i -u -C -w
+zstyle ':autocomplete:*complete*:*' insert-unambiguous yes
+zstyle ':autocomplete:*history*:*' insert-unambiguous yes
+zstyle ':autocomplete:menu-search:*' insert-unambiguous yes
 
 source ~/repos/zsh/zsh-autosuggestions/zsh-autosuggestions.zsh
 
