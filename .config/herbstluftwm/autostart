@@ -37,7 +37,6 @@ Mod=Mod4   # Use the super key as the main modifier
 hc keybind $Mod-Shift-q quit
 hc keybind $Mod-Shift-r reload
 hc keybind $Mod-Shift-c close
-hc keybind Ctrl-q close
 hc keybind $Mod-Return spawn "${TERMINAL:-alacritty}" # use your $TERMINAL with alacritty as fallback
 hc keybind $Mod-p spawn rofi -show drun
 hc keybind $Mod-s spawn flameshot gui
@@ -101,8 +100,8 @@ hc keybind $Mod-comma  use_index -1 --skip-visible
 
 # layouting
 hc keybind $Mod-r remove
-# hc keybind $Mod-s floating toggle
-hc keybind $Mod-f fullscreen toggle
+hc keybind $Mod-f floating toggle
+# hc keybind $Mod-f fullscreen toggle
 hc keybind $Mod-Shift-f set_attr clients.focus.floating toggle
 hc keybind $Mod-Shift-m set_attr clients.focus.minimized true
 hc keybind $Mod-Control-m jumpto last-minimized

@@ -22,9 +22,9 @@ hc detect_monitors
 xrandr \
  --dpi 169 \
  --output eDP-1 --mode 2560x1600 --rate 60 --pos 0x0 --primary \
- --output HDMI-1 --off \
- --output DP-1 --off \
- --output DP-2 --off
+ # --output HDMI-1 --off \
+ # --output DP-1 --off \
+ # --output DP-2 --off
 echo "Xft.dpi: 169" | xrdb -merge
 # xlayoutdisplay -p eDP-1
 
@@ -39,6 +39,7 @@ hc keybind $Mod-Shift-r reload
 hc keybind $Mod-Shift-c close
 hc keybind $Mod-Return spawn "${TERMINAL:-alacritty}" # use your $TERMINAL with alacritty as fallback
 hc keybind $Mod-p spawn rofi -show drun
+hc keybind $Mod-s spawn flameshot gui
 
 # basic movement in tiling and floating mode
 # focusing clients
@@ -99,8 +100,8 @@ hc keybind $Mod-comma  use_index -1 --skip-visible
 
 # layouting
 hc keybind $Mod-r remove
-hc keybind $Mod-s floating toggle
-hc keybind $Mod-f fullscreen toggle
+hc keybind $Mod-f floating toggle
+# hc keybind $Mod-f fullscreen toggle
 hc keybind $Mod-Shift-f set_attr clients.focus.floating toggle
 hc keybind $Mod-Shift-m set_attr clients.focus.minimized true
 hc keybind $Mod-Control-m jumpto last-minimized
