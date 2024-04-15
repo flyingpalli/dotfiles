@@ -1,0 +1,27 @@
+configuration{
+    // modi: "run,drun,window,";
+    modi: "drun";
+    font: "JetBrains Mono";
+    dpi: 169;
+    icon-theme: "Oranchelo";
+    show-icons: true;
+    terminal: "alacritty";
+    drun-display-format: "{icon} {name}";
+    location: 0;
+    yoffset: -550;
+    xoffset: 0;
+    window {
+        width: 1000px;
+    }
+    disable-history: false;
+    hide-scrollbar: true;
+    display-drun: "DRUN";
+    // display-drun: "   Apps ";
+    // display-run: "   Run ";
+    // display-window: " 﩯  Window";
+    display-Network: " 󰤨  Network";
+    // sidebar-mode: true;
+}
+
+@theme "catppuccin-mocha"
+

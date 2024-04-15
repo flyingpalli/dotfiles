@@ -13,6 +13,7 @@ alias fvim='nvim $(fzf)'
 alias hc='herbstclient'
 alias laptop='~/.config/herbstluftwm/switcher.py laptop && herbstclient reload'
 alias desktop='~/.config/herbstluftwm/switcher.py desktop && herbstclient reload'
+alias mirror='~/.config/herbstluftwm/switcher.py mirror && herbstclient reload'
 
 # Uni
 alias uni='cd ~/studium/24sose'
