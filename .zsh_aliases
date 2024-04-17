@@ -2,6 +2,9 @@ alias ll='ls -la'
 alias la='ls -A'
 alias cd='z'
 
+# I can't type leave me alone
+alias claer='clear'
+
 # Password manager
 alias kee='tresor ~/Database.kdbx'
 
