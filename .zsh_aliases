@@ -5,6 +5,10 @@ alias cd='z'
 # I can't type leave me alone
 alias claer='clear'
 
+# Display brightness
+alias brighter='sudo brightnessctl -d intel_backlight s +20%'
+alias darker='sudo brightnessctl -d intel_backlight s 20%-'
+
 # Password manager
 alias kee='tresor ~/Database.kdbx'
 
@@ -55,7 +59,7 @@ function mux() {
 }
 
 # Glow
-alias glow='glow -s ~/pallisupercoding/github/glow/mocha.json'
+alias glow='glow -s ~/repos/glow/mocha.json'
 
 # Cambridge CLI
 alias cambridge='python ~/pallisupercoding/cambridge-cli/cambridge.py'
