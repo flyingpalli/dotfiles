@@ -17,7 +17,7 @@ def main():
         subprocess.run(
             args=["python", "/home/pth/pallisupercoding/fontsize/fontsize.py", "10"]
         )
-    elif args.value in ["mirror", "desktop"]:
+    elif args.value in ["desktop", "mirror"]:
         subprocess.run(
             args=["python", "/home/pth/pallisupercoding/fontsize/fontsize.py", "11"]
         )

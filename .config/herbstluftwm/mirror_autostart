@@ -38,6 +38,9 @@ hc keybind $Mod-Shift-c close
 hc keybind $Mod-Return spawn "${TERMINAL:-alacritty}" # use your $TERMINAL with alacritty as fallback
 hc keybind $Mod-p spawn rofi -show drun
 hc keybind $Mod-s spawn flameshot gui
+hc keybind $Mod-n spawn networkmanager_dmenu
+hc keybind $Mod-b spawn rofi-bluetooth
+hc keybind $Mod-e spawn rofi -show power-menu -modi power-menu:rofi-power-menu
 
 # basic movement in tiling and floating mode
 # focusing clients
