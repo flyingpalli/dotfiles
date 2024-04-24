@@ -25,6 +25,7 @@ zstyle '*:compinit' arguments -D -i -u -C -w
 zstyle ':autocomplete:*complete*:*' insert-unambiguous yes
 zstyle ':autocomplete:*history*:*' insert-unambiguous yes
 zstyle ':autocomplete:menu-search:*' insert-unambiguous yes
+printf '\e]12;#cba6f7\007'
 
 source ~/repos/zsh/zsh-autosuggestions/zsh-autosuggestions.zsh
 
