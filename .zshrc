@@ -25,7 +25,6 @@ zstyle '*:compinit' arguments -D -i -u -C -w
 zstyle ':autocomplete:*complete*:*' insert-unambiguous yes
 zstyle ':autocomplete:*history*:*' insert-unambiguous yes
 zstyle ':autocomplete:menu-search:*' insert-unambiguous yes
-printf '\e]12;#cba6f7\007'
 
 source ~/repos/zsh/zsh-autosuggestions/zsh-autosuggestions.zsh
 
@@ -87,6 +86,7 @@ setopt PROMPT_SUBST
 local _exit_code_status='%(?.%F{magenta}→%f.%B%F{red}→%b%f)'
 local _path_formatted='%F{blue}%B%~%b%f'
 export PROMPT='$_path_formatted% $_GIT_STATUS%f $_exit_code_status '
+printf '\e]12;#cba6f7\007'
 
 # export LS_COLORS=${LS_COLORS/ow=34;42/ow=1;34}
 # export LS_COLORS=${LS_COLORS/tw=30;42/tw=1;34}
