@@ -23,16 +23,9 @@ alias desktop='~/.config/herbstluftwm/switcher.py desktop && herbstclient reload
 alias mirror='~/.config/herbstluftwm/switcher.py mirror && herbstclient reload'
 
 # Uni
-alias uni='cd ~/studium/24sose'
-# alias algfetch='wget -O ~/studium/algebra/AlgebraSkript.pdf -e robots=off -A pdf -r -l1 https://www.math.lmu.de/\~axr/ALG-2023-24.pdf'
-# alias algebra='open ~/studium/algebra/AlgebraSkript.pdf'
-# alias ana='open ~/studium/ana_i/ana_skript.pdf'
-# alias linalg='open ~/studium/algebra/LA-2022-23.pdf'
+alias cafetch='wget -O ~/uni/comm_alg/CA-2024.pdf -e robots=off -A pdf -r -l1 https://www.math.lmu.de/\~axr/CA-2024.pdf'
+alias ca='open ~/uni/comm_alg/CA-2024.pdf'
 # alias algu='open ~/studium/algebra/ueb/*.pdf(om[1]) && c ~/studium/algebra/ueb/latex_exercises'
-# alias numerik='open ~/studium/numerik/deutschesSkriptNum.pdf'
-# alias bs='open ~/studium/bs/VorlesungsskriptBetriebssysteme.pdf'
-# alias bsu='open ~/studium/bs/ueb/*.pdf(om[1]) && c ~/studium/bs/ueb/latex_exercises'
-# alias anau='pushd && cd ~/studium/ana_i/ueb/*(/om[1]) && open *.pdf(om[1]) && c latex_exercise/ && popd'
 
 # VSCode
 alias c='code'
@@ -64,9 +57,6 @@ alias glow='glow -s ~/repos/glow/mocha.json'
 # Cambridge CLI
 alias cambridge='python ~/pallisupercoding/cambridge-cli/cambridge.py'
 
-# # Linguee CLI
-# alias linguee='python ~/pallisupercoding/linguee-cli/linguee.py'
-
 # Control bluetooth
 alias blue='bluetuith'
 
@@ -84,7 +74,7 @@ alias spot='~/.spot.sh'
 alias grip='open http://localhost:6419 && grip'
 
 # Controls
-alias restart='sudo shutdown -r now'
+alias reboot='sudo shutdown -r now'
 alias shutdown='sudo shutdown -P now'
 
 # Weather
@@ -93,8 +83,5 @@ alias weather='curl wttr.in/\?2QF'
 # Zathura
 alias zath='~/.zathura.sh'
 
-alias palette='vim ~/palette'
-
+# Pulsemixer
 alias sound='pulsemixer'
-
-alias wifi='networkmanager_dmenu'
