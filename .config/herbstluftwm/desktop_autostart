@@ -137,7 +137,7 @@ hc set frame_border_active_color '#cba6f7ff'
 hc set frame_border_normal_color '#181825ff'
 hc set frame_bg_active_color '#585b70cc'
 hc set frame_bg_normal_color '#45475acc'
-hc set frame_border_width 1
+hc set frame_border_width 0
 hc set always_show_frame off
 hc set frame_bg_transparent on
 hc set frame_active_opacity 1
