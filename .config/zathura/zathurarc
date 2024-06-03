@@ -11,10 +11,12 @@ map J zoom out
 map i recolor
 map p print
 
-set recolor true
+# set recolor true
 include catppuccin-mocha
 
 set adjust-open "best-fit"
+set guioptions none
+set font "JetBrains Mono normal 10"
 
 unmap f
 map f toggle_fullscreen
