@@ -18,7 +18,6 @@ return require('packer').startup(function(use)
     use('nvim-treesitter/nvim-treesitter', { run = ':TSUpdate' })
     use('nvim-treesitter/playground')
 
-    use("machakann/vim-highlightedyank")
     use("tpope/vim-surround")
     use("jiangmiao/auto-pairs")
     use("preservim/nerdcommenter")

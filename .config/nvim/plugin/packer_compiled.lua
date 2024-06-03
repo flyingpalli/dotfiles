@@ -154,11 +154,6 @@ _G.packer_plugins = {
     path = "/home/pth/.local/share/nvim/site/pack/packer/start/vim-airline",
     url = "https://github.com/vim-airline/vim-airline"
   },
-  ["vim-highlightedyank"] = {
-    loaded = true,
-    path = "/home/pth/.local/share/nvim/site/pack/packer/start/vim-highlightedyank",
-    url = "https://github.com/machakann/vim-highlightedyank"
-  },
   ["vim-surround"] = {
     loaded = true,
     path = "/home/pth/.local/share/nvim/site/pack/packer/start/vim-surround",
