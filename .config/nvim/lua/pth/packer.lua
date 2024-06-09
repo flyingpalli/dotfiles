@@ -23,6 +23,8 @@ return require('packer').startup(function(use)
     use("preservim/nerdcommenter")
     use("vim-airline/vim-airline")
 
+    use { "lervag/vimtex", tag = "v2.15" }
+
     use {
         'VonHeikemen/lsp-zero.nvim',
         branch = 'v2.x',

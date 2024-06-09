@@ -22,18 +22,16 @@ vim.cmd("iab \\s ß")
 vim.keymap.set({ "n", "v" }, "<leader>y", [["+y]])
 vim.keymap.set("n", "<leader>Y", [["+Y]])
 
-vim.keymap.set("n", "<leader>s", [[:%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><Left>]])
+vim.keymap.set("n", "<leader>ll", function() vim.fn.jobstart('latexmk -pdf main.tex') end)
 
--- nnoremap <Left> :echo "No left for you!"<CR>
--- vnoremap <Left> :<C-u>echo "No left for you!"<CR>
--- inoremap <Left> <C-o>:echo "No left for you!"<CR>
+vim.keymap.set("n", "<leader>s", [[:%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><Left>]])
 
 local keys = { "Left", "Right", "Up", "Down" }
 local modes = { "n", "v", "i" }
 
 for _, k in pairs(keys) do
-	for _, m in pairs(modes) do
-		vim.keymap.set(m, "<" .. k .. ">", function() print("No " .. k .. " for you") end)
-		vim.keymap.set(m, "<C-" .. k .. ">", function() print("No Cmd+" .. k .. " for you") end)
-	end
+    for _, m in pairs(modes) do
+        vim.keymap.set(m, "<" .. k .. ">", function() print("No " .. k .. " for you") end)
+        vim.keymap.set(m, "<C-" .. k .. ">", function() print("No Cmd+" .. k .. " for you") end)
+    end
 end
