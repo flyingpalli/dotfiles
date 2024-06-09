@@ -18,13 +18,15 @@ source $HOME/.zsh_aliases
 
 export PATH="$PATH:$HOME/scripts"
 
-source ~/repos/zsh/zsh-autocomplete/zsh-autocomplete.plugin.zsh
-bindkey -M menuselect '\r' .accept-line
-zstyle ':autocomplete:*:*' list-lines 5
-zstyle ':autocomplete:*:*' list-lines 5
-zstyle '*:compinit' arguments -D -i -u -C -w
-zstyle ':autocomplete:*complete*:*' insert-unambiguous yes
-zstyle ':autocomplete:history-search-backward:*' list-lines 10
+# source ~/repos/zsh/zsh-autocomplete/zsh-autocomplete.plugin.zsh
+# bindkey -M menuselect '\r' .accept-line
+# zstyle ':autocomplete:*:*' list-lines 5
+# zstyle ':autocomplete:*:*' list-lines 5
+# zstyle '*:compinit' arguments -D -i -u -C -w
+# zstyle ':autocomplete:*complete*:*' insert-unambiguous yes
+# zstyle ':autocomplete:*history*:*' insert-unambiguous yes
+# zstyle ':autocomplete:menu-search:*' insert-unambiguous yes
+# zstyle ':autocomplete:history-search-backward:*' list-lines 10
 
 source ~/repos/zsh/zsh-autosuggestions/zsh-autosuggestions.zsh
 
@@ -138,3 +140,7 @@ eval "$(pyenv init -)"
 [ -f "/home/pth/.ghcup/env" ] && source "/home/pth/.ghcup/env" # ghcup-env
 # source ~/powerlevel10k/powerlevel10k.zsh-theme
 eval "$(zoxide init zsh)"
+
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
