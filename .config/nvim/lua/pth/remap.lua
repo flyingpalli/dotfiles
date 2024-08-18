@@ -22,7 +22,7 @@ vim.cmd("iab \\s ß")
 vim.keymap.set({ "n", "v" }, "<leader>y", [["+y]])
 vim.keymap.set("n", "<leader>Y", [["+Y]])
 
-vim.keymap.set("n", "<leader>ll", function() vim.fn.jobstart('latexmk -pdf main.tex') end)
+-- vim.keymap.set("n", "<leader>ll", function() vim.fn.jobstart('latexmk -pdf main.tex') end)
 
 vim.keymap.set("n", "<leader>s", [[:%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><Left>]])
 

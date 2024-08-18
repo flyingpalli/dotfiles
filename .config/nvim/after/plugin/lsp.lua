@@ -80,8 +80,16 @@ lsp.on_attach(function(client, bufnr)
     lsp.buffer_autoformat()
 end)
 
+lsp.set_sign_icons({
+    error = '✘',
+    warn = '▲',
+    hint = '⚑',
+    info = '»'
+})
+
 lsp.setup()
 
 vim.diagnostic.config({
-    virtual_text = true
+    virtual_text = false,
+    underline = false
 })
