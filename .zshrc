@@ -1,3 +1,4 @@
+source /etc/profile
 CASE_SENSITIVE="true"
 bindkey -e
 bindkey "^[[1;5C" forward-word
@@ -98,19 +99,21 @@ printf '\e]12;#cba6f7\007'
 export LESS="-Xr"
 
 # pip may install packages to this directory
-# if [ -d "$HOME/.local/bin" ] ; then
-#     PATH="$PATH:$HOME/.local/bin"
-# fi
-
-# Add go install path to $PATH
-if command -v go &> /dev/null; then
-    # Quick:
-    PATH="$PATH:$HOME/go/bin"
-    # Safe: (Use this running binaries installed via go doesn't work. In that
-    # case you might want to update the hard-coded value above)
-    # PATH="$PATH:$(go env GOPATH)/bin"
+if [ -d "$HOME/.local/bin" ] ; then
+    export PATH="$PATH:$HOME/.local/bin"
 fi
 
+# Add go install path to $PATH
+# if command -v go &> /dev/null; then
+#     # Quick:
+#     # export PATH=$PATH:$GOPATH/bin
+#     # Safe: (Use this running binaries installed via go doesn't work. In that
+#     # case you might want to update the hard-coded value above)
+#     # PATH="$PATH:$(go env GOPATH)/bin"
+# fi
+
+export PATH="$PATH:$HOME/go/bin"
+export PATH="$PATH:/usr/local/go/bin"
 export PATH="$HOME/.cargo/bin:$HOME/.local/bin:/opt:$PATH"
 
 # fuck
