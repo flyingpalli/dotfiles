@@ -2,30 +2,30 @@
 import os
 import subprocess
 from argparse import ArgumentParser
-from typing import Any, Dict, Optional
 
 
 def main():
     parser = ArgumentParser(prog="switcher.py")
     parser.add_argument("value", type=str)
     args = parser.parse_args()
+    val = args.value.lower()
 
-    if args.value not in ["laptop", "desktop", "mirror"]:
+    if val not in ["laptop", "desktop", "mirror"]:
         return
 
-    if args.value == "laptop":
+    if val == "laptop":
         subprocess.run(
             args=["python", "/home/pth/pallisupercoding/fontsize/fontsize.py", "10"]
         )
-    elif args.value in ["desktop", "mirror"]:
+    elif val in ["desktop", "mirror"]:
         subprocess.run(
             args=["python", "/home/pth/pallisupercoding/fontsize/fontsize.py", "11"]
         )
 
-    os.system(f"cp {args.value}_autostart autostart")
+    os.system(f"cp {val}_autostart autostart")
 
     os.chdir("/home/pth/.config/rofi")
-    os.system(f"cp {args.value}_config.rasi config.rasi")
+    os.system(f"cp {val}_config.rasi config.rasi")
 
 
 if __name__ == "__main__":
