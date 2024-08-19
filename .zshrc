@@ -68,7 +68,7 @@ zstyle ':omz:plugins:nvm' autoload yes
 
 plugins=(
     nvm
-    git
+    '#git'
 )
 
 source $ZSH/oh-my-zsh.sh
