@@ -19,7 +19,7 @@ ZSH_THEME="powerlevel10k/powerlevel10k"
 
 # Uncomment one of the following lines to change the auto-update behavior
 # zstyle ':omz:update' mode disabled  # disable automatic updates
-# zstyle ':omz:update' mode auto      # update automatically without asking
+zstyle ':omz:update' mode auto      # update automatically without asking
 # zstyle ':omz:update' mode reminder  # just remind me to update when it's time
 
 # Uncomment the following line to change how often to auto-update (in days).
@@ -104,7 +104,6 @@ source $ZSH/oh-my-zsh.sh
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
-printf '\e]12;#cba6f7\007'
 
 bindkey "^[[1;5C" forward-word
 bindkey "^[[1;5D" backward-word
@@ -134,7 +133,7 @@ eval $(thefuck --alias)
 
 eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
 
-export PATH=$PATH:/home/pth/.spicetify
+# export PATH=$PATH:/home/pth/.spicetify
 
 # pyenv
 export PYENV_ROOT="$HOME/.pyenv"
