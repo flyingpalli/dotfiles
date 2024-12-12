@@ -1,14 +1,3 @@
-# pip may install packages to this directory
-if [ -d "$HOME/.local/bin" ] ; then
-    export PATH="$PATH:$HOME/.local/bin"
-fi
-
-export PATH="$PATH:$HOME/go/bin"
-export PATH="$PATH:/usr/local/go/bin"
-export PATH="$HOME/.cargo/bin:$HOME/.local/bin:/opt:$PATH"
-
-eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
-
 # Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.zshrc.
 # Initialization code that may require console input (password prompts, [y/n]
 # confirmations, etc.) must go above this block; everything else may go below.
@@ -77,18 +66,9 @@ zstyle ':omz:update' mode auto      # update automatically without asking
 # Add wisely, as too many plugins slow down shell startup.
 zstyle ':omz:plugins:nvm' autoload yes
 
-# pyenv
-export PYENV_ROOT="$HOME/.pyenv"
-[[ -d $PYENV_ROOT/bin ]] && export PATH="$PYENV_ROOT/bin:$PATH"
-eval "$(pyenv init -)"
-eval "$(pyenv virtualenv-init -)"
-
 plugins=(
     nvm
     git
-    zsh-autosuggestions
-    poetry
-    pyenv
 )
 
 source $ZSH/oh-my-zsh.sh
@@ -134,19 +114,32 @@ source $HOME/.zsh_aliases
 
 export PATH="$PATH:$HOME/scripts"
 
-# source ~/repos/zsh/zsh-autosuggestions/zsh-autosuggestions.zsh
+source ~/repos/zsh/zsh-autosuggestions/zsh-autosuggestions.zsh
 
 # Leaves output of `less` on screen after exiting
 export LESS="-Xr"
 
+# pip may install packages to this directory
+if [ -d "$HOME/.local/bin" ] ; then
+    export PATH="$PATH:$HOME/.local/bin"
+fi
+
+export PATH="$PATH:$HOME/go/bin"
+export PATH="$PATH:/usr/local/go/bin"
+export PATH="$HOME/.cargo/bin:$HOME/.local/bin:/opt:$PATH"
+
 # fuck
-# eval $(thefuck --alias)
+eval $(thefuck --alias)
+
+eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
 
 # export PATH=$PATH:/home/pth/.spicetify
 
+# pyenv
+export PYENV_ROOT="$HOME/.pyenv"
+[[ -d $PYENV_ROOT/bin ]] && export PATH="$PYENV_ROOT/bin:$PATH"
+eval "$(pyenv init -)"
+eval "$(pyenv virtualenv-init -)"
+
+[ -f "/home/pth/.ghcup/env" ] && source "/home/pth/.ghcup/env" # ghcup-env
 eval "$(zoxide init zsh)"
-
-export PATH="$PATH:/opt/nvim-linux64/bin"
-
-[ -f "/home/paskal/.ghcup/env" ] && . "/home/paskal/.ghcup/env" # ghcup-env
-export PATH=$PATH:/home/paskal/.spicetify

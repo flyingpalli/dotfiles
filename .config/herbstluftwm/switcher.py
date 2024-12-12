@@ -15,19 +15,19 @@ def main():
 
     if val == "laptop":
         subprocess.run(
-            args=["python", "/home/pth/pallisupercoding/fontsize/fontsize.py", "10"]
+            args=["python", "/home/paskal/pallisupercoding/fontsize/fontsize.py", "11"]
         )
     elif val in ["desktop", "mirror"]:
         subprocess.run(
-            args=["python", "/home/pth/pallisupercoding/fontsize/fontsize.py", "11"]
+            args=["python", "/home/paskal/pallisupercoding/fontsize/fontsize.py", "11"]
         )
 
     os.system(f"cp {val}_autostart autostart")
 
-    os.chdir("/home/pth/.config/rofi")
+    os.chdir("/home/paskal/.config/rofi")
     os.system(f"cp {val}_config.rasi config.rasi")
 
 
 if __name__ == "__main__":
-    os.chdir("/home/pth/.config/herbstluftwm")
+    os.chdir("/home/paskal/.config/herbstluftwm")
     main()

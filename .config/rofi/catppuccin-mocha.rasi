@@ -1,0 +1,124 @@
+* {
+    background-color:     #1e1e2e;
+    foreground:           #1e1e2e;
+    background:           #181825;
+    normal-background:    #1e1e2e;
+    normal-foreground:    #cdd6f4;
+    alternate-background: #181825;
+    alternate-foreground: #cdd6f4;
+    selected-background:  #313244;
+    selected-foreground:  #cba6f7;
+    separatorcolor:       #cba6f7;
+    font:                 "JetBrains Mono 15px";
+}
+element {
+    padding: 3px ;
+    // cursor:  pointer;
+    spacing: 1px ;
+    border:  0;
+}
+element normal {
+    background-color: var(normal-background);
+    text-color:       var(normal-foreground);
+}
+element selected {
+    background-color: var(selected-background);
+    text-color:       var(selected-foreground);
+}
+element alternate.normal {
+    background-color: var(alternate-background);
+    text-color:       var(alternate-foreground);
+}
+element-text {
+    background-color: transparent;
+    cursor:           inherit;
+    highlight:        inherit;
+    text-color:       inherit;
+}
+element-icon {
+    background-color: transparent;
+    size:             15;
+    cursor:           inherit;
+    text-color:       inherit;
+}
+window {
+    padding:          5;
+    background-color: var(background);
+    border:           3;
+}
+mainbox {
+    padding: 0;
+    border:  0;
+}
+message {
+    padding:      1px ;
+    border-color: var(separatorcolor);
+    border:       2px dash 0px 0px ;
+}
+textbox {
+    text-color: var(foreground);
+}
+listview {
+    padding:      2px 0px 0px ;
+    scrollbar:    true;
+    border-color: var(separatorcolor);
+    spacing:      2px ;
+    fixed-height: 0;
+    border:       2px 0px 0px 0px ;
+}
+scrollbar {
+    width:        4px ;
+    padding:      0;
+    handle-width: 8px ;
+    border:       0;
+    handle-color: var(normal-foreground);
+}
+sidebar {
+    border-color: var(separatorcolor);
+    border:       2px dash 0px 0px ;
+}
+button {
+    cursor:     pointer;
+    spacing:    0;
+    text-color: var(normal-foreground);
+}
+num-filtered-rows {
+    expand:     false;
+    text-color: Gray;
+}
+num-rows {
+    expand:     false;
+    text-color: Gray;
+}
+textbox-num-sep {
+    expand:     false;
+    str:        "/";
+    text-color: Gray;
+}
+inputbar {
+    padding:    9px ;
+    spacing:    20px ;
+    text-color: var(normal-foreground);
+    // children:   [ "prompt","textbox-prompt-colon","entry","num-filtered-rows","textbox-num-sep","num-rows","case-indicator" ];
+}
+case-indicator {
+    spacing:    0;
+    text-color: var(normal-foreground);
+}
+entry {
+    text-color:        var(normal-foreground);
+    cursor:            text;
+    spacing:           0;
+    placeholder-color: Gray;
+    placeholder:       "Type to filter";
+}
+prompt {
+    spacing:    0;
+    text-color: var(normal-foreground);
+}
+textbox-prompt-colon {
+    margin:     0px 0px 0px 0px;
+    expand:     false;
+    str:        ":";
+    text-color: inherit;
+}

@@ -1,1 +1,1 @@
-require("pth")
+require("paskal")

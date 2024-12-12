@@ -1,5 +1,3 @@
-import = [ "/home/pth/.config/alacritty/catppuccin-mocha.toml",]
-
 [colors]
 draw_bold_text_with_bright_colors = true
 
@@ -11,11 +9,11 @@ decorations = "None"
 opacity = 0.85
 startup_mode = "Maximized"
 
-[shell]
-program = "/bin/zsh"
-
 [font]
 size = 11.0
+
+[general]
+import = [ "/home/paskal/.config/alacritty/catppuccin-mocha.toml",]
 
 [font.bold]
 family = "JetBrains Mono"
@@ -32,3 +30,6 @@ style = "Italic"
 [font.normal]
 family = "JetBrains Mono"
 style = "Regular"
+
+[terminal.shell]
+program = "/bin/zsh"
