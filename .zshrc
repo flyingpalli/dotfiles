@@ -140,7 +140,7 @@ export PATH="$PATH:$HOME/scripts"
 export LESS="-Xr"
 
 # fuck
-# eval $(thefuck --alias)
+eval $(thefuck --alias)
 
 # export PATH=$PATH:/home/pth/.spicetify
 
