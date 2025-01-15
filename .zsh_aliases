@@ -52,7 +52,7 @@ function mux() {
 }
 
 # Glow
-alias glow='glow -s ~/repos/glow/mocha.json'
+alias glow='glow -s ~/themes/catppuccin/glow/catppuccin-mocha.json'
 
 # Cambridge CLI
 alias cambridge='python ~/pallisupercoding/cambridge-cli/cambridge.py'
