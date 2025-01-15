@@ -21,9 +21,12 @@ require 'lspconfig'.pylsp.setup({
                 enabled = true,
                 formatEnabled = true,
             },
-            pycodestyle = {
-                enabled = false
-            }
+            black = {
+                enabled = true
+            },
+            -- pycodestyle = {
+            --     enabled = false
+            -- }
         }
     }
 })
