@@ -80,8 +80,5 @@ alias shutdown='sudo shutdown -P now'
 # Weather
 alias weather='curl wttr.in/\?2QF'
 
-# Zathura
-alias zath='~/.zathura.sh'
-
 # Pulsemixer
 alias sound='pulsemixer'
