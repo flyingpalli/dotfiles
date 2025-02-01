@@ -27,14 +27,26 @@ vim.g.maplocalleader = ' '
 
 vim.g.have_nerd_font = true
 
+vim.g.loaded_netrw = 1
+vim.g.loaded_netrwPlugin = 1
+
 -- [[ Setting options ]]
+
+vim.cmd 'filetype plugin indent on'
+vim.opt.encoding = 'utf8'
 
 -- Make line numbers default
 vim.opt.number = true
 vim.opt.relativenumber = true
 
+vim.opt.termguicolors = true
+
 -- Enable mouse mode, can be useful for resizing splits for example!
 vim.opt.mouse = 'a'
+
+-- Enable spelling
+vim.opt.spell = true
+vim.opt.spelllang = 'en'
 
 -- Don't show the mode, since it's already in the status line
 vim.opt.showmode = false
@@ -80,7 +92,8 @@ vim.opt.listchars = { tab = '» ', trail = '·', nbsp = '␣' }
 vim.opt.inccommand = 'split'
 
 -- Show which line your cursor is on
-vim.opt.cursorline = true
+vim.opt.cursorline = false
+vim.opt.guicursor = ''
 
 -- Minimal number of screen lines to keep above and below the cursor.
 vim.opt.scrolloff = 8
@@ -88,7 +101,7 @@ vim.opt.scrolloff = 8
 -- [[ Basic Keymaps ]]
 
 -- Exit a file
-vim.keymap.set('n', '<leader>pv', vim.cmd.Ex)
+-- vim.keymap.set('n', '<leader>pv', vim.cmd.Ex)
 
 -- Move multiple lines in visual mode
 vim.keymap.set('v', 'K', ":m '<-2<CR>gv=gv")
@@ -149,12 +162,44 @@ require('lazy').setup({
     version = '*',
     dependencies = 'nvim-tree/nvim-web-devicons',
     config = function()
-      vim.opt.termguicolors = true
       require('bufferline').setup {
         options = {
           separator_style = 'slope',
         },
       }
+    end,
+  },
+
+  { 'nvim-tree/nvim-web-devicons', opts = {} },
+
+  { 'smzm/hydrovim', enabled = false, dependencies = { 'MunifTanjim/nui.nvim' } },
+
+  {
+    'nvim-tree/nvim-tree.lua',
+    version = '*',
+    lazy = false,
+    dependencies = {
+      'nvim-tree/nvim-web-devicons',
+    },
+    config = function()
+      require('nvim-tree').setup {
+        sort = {
+          sorter = 'case_sensitive',
+        },
+        view = {
+          width = 30,
+        },
+        renderer = {
+          group_empty = true,
+        },
+        filters = {
+          dotfiles = true,
+        },
+      }
+
+      local api = require 'nvim-tree.api'
+
+      vim.keymap.set('n', '<leader>nt', api.tree.toggle, { desc = 'Toggle [N]vim-[T]ree' })
     end,
   },
 
@@ -347,7 +392,16 @@ require('lazy').setup({
 
       -- Useful status updates for LSP.
       -- NOTE: `opts = {}` is the same as calling `require('fidget').setup({})`
-      { 'j-hui/fidget.nvim', opts = {} },
+      {
+        'j-hui/fidget.nvim',
+        opts = {
+          notification = {
+            window = {
+              winblend = 0,
+            },
+          },
+        },
+      },
 
       -- Allows extra capabilities provided by nvim-cmp
       'hrsh7th/cmp-nvim-lsp',
@@ -459,6 +513,9 @@ require('lazy').setup({
       --  - settings (table): Override the default settings passed when initializing the server.
       --        For example, to see the options for `lua_ls`, you could go to: https://luals.github.io/wiki/settings/
       local servers = {
+        gopls = {},
+        hls = {},
+        clangd = {},
         pylsp = {
           settings = {
             pylsp = {
@@ -514,6 +571,16 @@ require('lazy').setup({
         },
       }
     end,
+  },
+
+  {
+    'lervag/vimtex',
+    lazy = false, -- we don't want to lazy load VimTeX
+    -- tag = "v2.15", -- uncomment to pin to a specific release
+    -- init = function()
+    --   -- VimTeX configuration goes here, e.g.
+    --   vim.g.vimtex_view_method = 'zathura'
+    -- end,
   },
 
   { -- Autoformat
@@ -665,6 +732,10 @@ require('lazy').setup({
     'catppuccin/nvim',
     priority = 1000, -- Make sure to load this before all the other start plugins.
     init = function()
+      require('catppuccin').setup {
+        flavour = 'mocha',
+        transparent_background = true,
+      }
       -- Load the colorscheme here.
       -- Like many other themes, this one has different styles, and you could load
       -- any other, such as 'tokyonight-storm', 'tokyonight-moon', or 'tokyonight-day'.
@@ -718,21 +789,18 @@ require('lazy').setup({
   { -- Highlight, edit, and navigate code
     'nvim-treesitter/nvim-treesitter',
     build = ':TSUpdate',
-    main = 'nvim-treesitter.configs', -- Sets main module to use for opts
+    -- main = 'nvim-treesitter.configs', -- Sets main module to use for opts
     -- [[ Configure Treesitter ]] See `:help nvim-treesitter`
-    opts = {
-      ensure_installed = { 'bash', 'c', 'diff', 'haskell', 'html', 'lua', 'luadoc', 'markdown', 'markdown_inline', 'python', 'query', 'vim', 'vimdoc' },
-      -- Autoinstall languages that are not installed
-      auto_install = true,
-      highlight = {
-        enable = true,
-        -- Some languages depend on vim's regex highlighting system (such as Ruby) for indent rules.
-        --  If you are experiencing weird indenting issues, add the language to
-        --  the list of additional_vim_regex_highlighting and disabled languages for indent.
-        additional_vim_regex_highlighting = { 'ruby' },
-      },
-      indent = { enable = true, disable = { 'ruby' } },
-    },
+    config = function()
+      local configs = require 'nvim-treesitter.configs'
+
+      configs.setup {
+        ensure_installed = { 'c', 'lua', 'vim', 'haskell', 'go', 'python' },
+        highlight = { enable = true },
+        indent = { enable = true },
+        sync_install = true,
+      }
+    end,
     -- There are additional nvim-treesitter modules that you can use to interact
     -- with nvim-treesitter. You should go explore a few and see what interests you:
     --
@@ -762,6 +830,7 @@ require('lazy').setup({
   --
   --  Uncomment the following line and add your plugins to `lua/custom/plugins/*.lua` to get going.
   -- { import = 'custom.plugins' },
+  -- require 'custom.plugins',
   --
   -- For additional information with loading, sourcing and examples see `:help lazy.nvim-🔌-plugin-spec`
   -- Or use telescope!
