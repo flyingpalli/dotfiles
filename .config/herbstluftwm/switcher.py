@@ -15,7 +15,7 @@ def main():
 
     if val == "laptop":
         subprocess.run(
-            args=["python", "/home/paskal/pallisupercoding/fontsize/fontsize.py", "11"]
+            args=["python", "/home/paskal/pallisupercoding/fontsize/fontsize.py", "14"]
         )
     elif val in ["desktop", "mirror"]:
         subprocess.run(

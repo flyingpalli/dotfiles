@@ -10,7 +10,7 @@ opacity = 0.85
 startup_mode = "Maximized"
 
 [font]
-size = 11.0
+size = 14.0
 
 [general]
 import = [ "/home/paskal/.config/alacritty/catppuccin-mocha.toml",]

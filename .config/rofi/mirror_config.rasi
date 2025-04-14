@@ -6,6 +6,7 @@ configuration{
     disable-history: false;
     hide-scrollbar: true;
     display-drun: "DRUN";
+    font: "JetBrains Mono 15px";
 }
 
 @theme "catppuccin-mocha"

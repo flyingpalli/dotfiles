@@ -1,13 +1,13 @@
 configuration{
     modi: "drun";
-    font: "JetBrains Mono";
     icon-theme: "Oranchelo";
     show-icons: true;
     drun-display-format: "{icon} {name}";
     disable-history: false;
     hide-scrollbar: true;
     display-drun: "DRUN";
+    font: "JetBrains Mono 15px";
 }
 
-@theme "catppuccin-mocha"
+@theme "desktop-catppuccin-mocha"
 
