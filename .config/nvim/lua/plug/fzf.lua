@@ -4,6 +4,7 @@ return {
   enabled = true,
   opts = {
     { 'skim', 'max-perf', 'telescope' },
+    fzf_bin = '/home/linuxbrew/.linuxbrew/bin/fzf',
     fzf_opts = { ['--layout'] = 'reverse', ['--marker'] = false },
     defaults = { compat_warn = false, no_header = true, no_header_i = true },
     winopts = {

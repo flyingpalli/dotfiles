@@ -7,7 +7,7 @@ vim.opt.spelllang = 'en'
 
 local o = vim.opt
 
-o.shell = '/home/paskal/.cargo/bin/alacritty'
+-- o.shell = '/home/paskal/.cargo/bin/alacritty'
 o.shortmess:append 'IWSsac'
 if vim.fn.executable 'rg' == 1 then
   o.grepprg = 'rg --vimgrep --hidden --color=never --no-heading --line-number --column --with-filename  --smart-case --trim --'
