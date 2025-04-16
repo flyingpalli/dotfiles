@@ -1,54 +1,42 @@
-return {
-  "stevearc/conform.nvim",
-  event = "BufWritePre",
-  cmd = "ConformInfo",
+return { -- Autoformat
+  'stevearc/conform.nvim',
+  enabled = true,
+  event = { 'BufWritePre' },
+  cmd = { 'ConformInfo' },
   keys = {
     {
-      "<leader>F",
+      '<leader>f',
       function()
-        require("conform").format({ async = true, lsp_fallback = true })
+        require('conform').format { async = true, lsp_format = 'fallback' }
       end,
-      mode = "n",
-      desc = "[F]ormat current buffer",
+      mode = '',
+      desc = '[F]ormat buffer',
     },
   },
-  config = function()
-    vim.o.formatexpr = "v:lua.require'conform'.formatexpr()"
-    require("conform").setup({
-      -- format_after_save = { async = false, lsp_fallback = true },
-      formatters_by_ft = {
-        c = { "clang-format" },
-        cpp = { "clang-format" },
-        ocaml = { "ocamlformat" },
-        dune = { "dune" },
-        rust = { "rustfmt" },
-        go = { "gofmt" },
-        lua = { "stylua" },
-        python = { "ruff_format" },
-        sh = { "shfmt" },
-        bash = { "shfmt" },
-        json = { "biome" },
-        jsonc = { "biome" },
-        javascript = { "biome" },
-        typescript = { "biome" },
+  opts = {
+    notify_on_error = false,
+    format_on_save = function(bufnr)
+      local disable_filetypes = { c = false }
+      local lsp_format_opt
+      if disable_filetypes[vim.bo[bufnr].filetype] then
+        lsp_format_opt = 'never'
+      else
+        lsp_format_opt = 'fallback'
+      end
+      return {
+        timeout_ms = 500,
+        lsp_format = lsp_format_opt,
+      }
+    end,
+    formatters = {
+      black = {
+        line_length = 120,
       },
-      -- stylua: ignore start
-      formatters = {
-        ["clang-format"] = { prepend_args = { "--style=file" } },
-        dune = { command = "dune", args = { "format-dune-file" } },
-        ruff_format = { command = "ruff", args = { "format", "--force-exclude", "--stdin-filename", "$FILENAME", "-" }, stdin = true },
-        beautysh = { prepend_args = { "-i", "2" } },
-        shfmt = { inherit = false, command = "shfmt", args = { "-i", "2", "-s", "-bn", "-ci", "--filename", "$FILENAME" } },
-        biome = {
-          inherit = false,
-          command = "biome",
-          stdin = false,
-          args = function()
-            return { "format", "--config-path=" .. vim.fn.expand("$XDG_CONFIG_HOME") .. "/biome", "--write", "$FILENAME" }
-          end,
-        },
-      },
-      -- stylua: ignore end
-    })
-  end,
+    },
+    formatters_by_ft = {
+      lua = { 'stylua' },
+      python = { 'isort', 'black' },
+      cpp = { 'clang-format' },
+    },
+  },
 }

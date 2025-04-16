@@ -6,10 +6,11 @@ if vim.fn.executable("clangd") then
   require("core.func").Notify("INFO", "[LSP] C|C++: Clangd.")
   server = {
     on_attach = require("core.func").LSPAttach,
-    filetypes = { "cpp", "hpp" },
+    filetypes = { "cpp", "hpp", "h" },
     root_patterns = {
       "*.cpp",
       "*.hpp",
+      "*.h",
       "*.cmake",
       "cmake*/",
       "CMakePresets.json",

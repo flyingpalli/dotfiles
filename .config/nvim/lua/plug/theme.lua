@@ -1,38 +1,17 @@
-local kp = require("clrs.kanagawa.palette")
 return {
-  {
-    "vinitkumar/oscura-vim",
-    priority = 1010,
-    lazy = false,
-  },
-  {
-    "catppuccin/nvim",
-    priority = 1010,
-    lazy = false,
-  },
-  {
-    "bettervim/yugen.nvim",
-    priority = 1010,
-    lazy = vim.g.theme ~= "yugen",
-  },
-  {
-    "amedoeyes/eyes.nvim",
-    priority = 1010,
-    lazy = vim.g.theme ~= "eyes",
-    opts = {
-      extend = { highlights = { Normal = { bg = kp.dragonInk1 } } },
-      features = {
-        plugins = {
-          codeium = false,
-          dap_ui = false,
-          illuminate = false,
-          leap = false,
-          mason = false,
-          mini_indentscope = false,
-          neo_tree = false,
-          noice = false,
-        },
-      },
-    },
-  },
+    'catppuccin/nvim',
+    priority = 1000, -- Make sure to load this before all the other start plugins.
+    init = function()
+      require('catppuccin').setup {
+        flavour = 'mocha',
+        transparent_background = true,
+      }
+      -- Load the colorscheme here.
+      -- Like many other themes, this one has different styles, and you could load
+      -- any other, such as 'tokyonight-storm', 'tokyonight-moon', or 'tokyonight-day'.
+      vim.cmd.colorscheme 'catppuccin'
+
+      -- You can configure highlights by doing something like:
+      vim.cmd.hi 'Comment gui=none'
+    end,
 }

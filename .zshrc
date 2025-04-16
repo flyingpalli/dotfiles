@@ -85,6 +85,7 @@ eval "$(pyenv virtualenv-init -)"
 
 plugins=(
     nvm
+    npm
     git
     zsh-autosuggestions
     poetry
@@ -150,3 +151,10 @@ export PATH="$PATH:/opt/nvim-linux64/bin"
 
 [ -f "/home/paskal/.ghcup/env" ] && . "/home/paskal/.ghcup/env" # ghcup-env
 export PATH=$PATH:/home/paskal/.spicetify
+
+# Generated for envman. Do not edit.
+[ -s "$HOME/.config/envman/load.sh" ] && source "$HOME/.config/envman/load.sh"
+
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion

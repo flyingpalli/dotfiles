@@ -1,72 +1,68 @@
-vim.g.mapleader = ' '
-vim.g.maplocalleader = ' '
+vim.g.mapleader = " "
+vim.g.maplocalleader = " "
 
 local map = F.map
 local bmap = F.bmap
 local cmd = vim.cmd
 
-map('n', '<leader>ch', '<cmd>ClangdSwitchSourceHeader<CR>')
+-- ~ General --------------------------------------------------------------- ~ --
 
--- Move multiple lines in visual mode
-map('x', 'J', [[:'<,'>m '>+1<CR>gv=gv]], 'Move selection down')
-map('x', 'K', [[:'<,'>m '<-2<CR>gv=gv]], 'Move selection up')
-map({ 'n', 'x' }, '<C-d>', '10j', 'Scroll down 10 lines')
-map({ 'n', 'x' }, '<C-u>', '10k', 'Scroll up 10 lines')
-map({ 'n', 'x' }, '<Space>', '', 'Disable moving cursor with space')
+-- Movement
+map("x", "J", [[:'<,'>m '>+1<CR>gv=gv]], "Move selection down")
+map("x", "K", [[:'<,'>m '<-2<CR>gv=gv]], "Move selection up")
+map({ "n", "x" }, "<C-d>", "10j", "Scroll down 10 lines")
+map({ "n", "x" }, "<C-u>", "10k", "Scroll up 10 lines")
+map({ "n", "x" }, "<Space>", "", "Disable moving cursor with space")
 
-vim.keymap.set('n', '<Esc>', '<cmd>nohlsearch<CR>')
-
--- Diagnostic keymaps
-vim.keymap.set('n', '<leader>q', vim.diagnostic.setloclist, { desc = 'Open diagnostic [Q]uickfix list' })
-
--- Exit terminal mode in the builtin terminal with a shortcut
--- NOTE: This won't work in all terminal emulators/tmux/etc.
-vim.keymap.set('t', '<Esc><Esc>', '<C-\\><C-n>', { desc = 'Exit terminal mode' })
-
--- Keybinds to make split navigation easier.
-vim.keymap.set('n', '<C-h>', '<C-w><C-h>', { desc = 'Move focus to the left window' })
-vim.keymap.set('n', '<C-l>', '<C-w><C-l>', { desc = 'Move focus to the right window' })
-vim.keymap.set('n', '<C-j>', '<C-w><C-j>', { desc = 'Move focus to the lower window' })
-vim.keymap.set('n', '<C-k>', '<C-w><C-k>', { desc = 'Move focus to the upper window' })
+-- Edit
+map("n", "<C-i>", "<C-i>", "Disambiguate from <tab>")
+map("n", "<tab>", ">>", "Indent line using <tab>")
+map("n", "<bs>", "<<", "Unindent line using <bs>")
 
 -- Buffers
-map('n', '<leader>bd', cmd.bd, '[b]uffer [d]elete')
+map("n", "<leader>bd", cmd.bd, "[b]uffer [d]elete")
 
 -- Search
-map('n', '<leader>nh', cmd.nohl, '[n]o [h]ighlights')
-map('n', 'n', 'nzzzv', 'Vertically center on next matching search')
-map('n', 'N', 'Nzzzv', 'Vertically center on previous matching search')
+map("n", "<leader>nh", cmd.nohl, "[n]o [h]ighlights")
+map("n", "n", "nzzzv", "Vertically center on next matching search")
+map("n", "N", "Nzzzv", "Vertically center on previous matching search")
+
+-- Yank/Paste
+map("n", "x", '"_x', "Cut rightward character without saving to buffer")
+map("x", "<leader>P", '"_dP', "Past from system clipboard")
+map({ "n", "x" }, "<leader>y", '"+y', "Yank to system clipboard")
+map("n", "<leader>Y", '"+Y', "Yank to system clipboard")
 
 -- Tabs
-map('n', '<leader>to', cmd.tabnew, '[t]ab [o]pen')
-map('n', '<leader>tml', '<cmd>tabmove +1<CR>', '[t]ab [m]ove [l] right')
-map('n', '<leader>tmh', '<cmd>tabmove -1<CR>', '[t]ab [m]ove [h] left')
+map("n", "<leader>to", cmd.tabnew, "[t]ab [o]pen")
+map("n", "<leader>tml", "<cmd>tabmove +1<CR>", "[t]ab [m]ove [l] right")
+map("n", "<leader>tmh", "<cmd>tabmove -1<CR>", "[t]ab [m]ove [h] left")
 
 -- Diagnostic
-map('n', ']d', vim.diagnostic.goto_next, 'Next ] [d]iagnostic')
-map('n', '[d', vim.diagnostic.goto_prev, 'Previous [ [d]iagnostic')
+map("n", "]d", vim.diagnostic.goto_next, "Next ] [d]iagnostic")
+map("n", "[d", vim.diagnostic.goto_prev, "Previous [ [d]iagnostic")
 
 -- Commandline
-map('n', '<CR>', ':<C-U>', 'Enter key for cmdline')
-vim.api.nvim_set_keymap('c', '<C-a>', '<Home>', {})
-vim.api.nvim_set_keymap('c', '<C-e>', '<End>', {})
-vim.api.nvim_set_keymap('c', '<C-f>', '<Right>', {})
-vim.api.nvim_set_keymap('c', '<C-b>', '<Left>', {})
-vim.api.nvim_set_keymap('c', '<C-n>', '<Down>', {})
-vim.api.nvim_set_keymap('c', '<C-p>', '<Up>', {})
-vim.api.nvim_set_keymap('c', '<C-d>', '<Del>', {})
-vim.api.nvim_set_keymap('c', '<M-b>', '<S-Left>', {})
-vim.api.nvim_set_keymap('c', '<M-f>', '<S-Right>', {})
+map("n", "<CR>", ":<C-U>", "Enter key for cmdline")
+vim.api.nvim_set_keymap("c", "<C-a>", "<Home>", {})
+vim.api.nvim_set_keymap("c", "<C-e>", "<End>", {})
+vim.api.nvim_set_keymap("c", "<C-f>", "<Right>", {})
+vim.api.nvim_set_keymap("c", "<C-b>", "<Left>", {})
+vim.api.nvim_set_keymap("c", "<C-n>", "<Down>", {})
+vim.api.nvim_set_keymap("c", "<C-p>", "<Up>", {})
+vim.api.nvim_set_keymap("c", "<C-d>", "<Del>", {})
+vim.api.nvim_set_keymap("c", "<M-b>", "<S-Left>", {})
+vim.api.nvim_set_keymap("c", "<M-f>", "<S-Right>", {})
 
 -- Terminal
-map('t', '<Esc>', '<C-\\><C-n>', 'Terminal escape')
+map("t", "<Esc>", "<C-\\><C-n>", "Terminal escape")
 
 -- ~ Plugin ---------------------------------------------------------------- ~ --
 
-map('n', '<leader>L', cmd.Lazy, '[L]azy')
-map('n', '<leader>f', cmd.Oil, 'Oil [f]ile browser')
-map('n', '<leader>of', '<cmd>Oil --float<CR>', '[o]il [f]loat')
-map('n', '<leader>u', vim.cmd.UndotreeToggle, '[u]ndo tree')
+map("n", "<leader>L", cmd.Lazy, "[L]azy")
+map("n", "<leader>f", cmd.Oil, "Oil [f]ile browser")
+map("n", "<leader>of", "<cmd>Oil --float<CR>", "[o]il [f]loat")
+map("n", "<leader>u", vim.cmd.UndotreeToggle, "[u]ndo tree")
 
 -- stylua: ignore start
 -- Flash
@@ -90,6 +86,7 @@ map("n", "<leader>sh", "<cmd>FzfLua helptags<CR>",             "FzfLua [s]earch 
 map("n", "<leader>sg", "<cmd>FzfLua live_grep<CR>",            "FzfLua [s]earch [g]rep")
 map("n", "<leader>sw", "<cmd>FzfLua grep_cword<CR>",           "FzfLua [s]earch [w]ord")
 map("n", "<leader>sd", "<cmd>FzfLua diagnostics_document<CR>", "FzfLua [s]earch [d]iagnostics")
+map("n", "<leader>sk", "<cmd>FzfLua keymaps<CR>",              "[S]earch [K]eymaps")
 map("n", "<leader>?", "<cmd>FzfLua oldfiles<CR>",              "[?] FzfLua recent files")
 map("n", "<leader> ", "<cmd>FzfLua buffers<CR>",               "[ ] FzfLua open buffers")
 map("n", "<leader>/", "<cmd>FzfLua blines<CR>",                "[/] FzfLua search buffer")
