@@ -16,7 +16,7 @@ require('lazy').setup {
   checker = { enabled = false },
   change_detection = { notify = false },
   ui = {
-      icons = vim.g.have_nerd_font and {} or {
+    icons = vim.g.have_nerd_font and {} or {
       cmd = '⌘',
       config = '🛠',
       event = '📅',

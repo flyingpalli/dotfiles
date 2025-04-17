@@ -1,20 +1,20 @@
 return {
-    'nvim-treesitter/nvim-treesitter',
-    dependencies = { "nvim-treesitter/nvim-treesitter-textobjects" },
-    build = ':TSUpdate',
-    event = "BufReadPost",
-    dependencies = { "nvim-treesitter/nvim-treesitter-textobjects" },
-    config = function()
-      local configs = require 'nvim-treesitter.configs'
-      local to = Key.TS.textobjects
-      local is = Key.TS.incremental_selection
-      configs.setup {
-        ensure_installed = { 'c', 'lua', 'vim', 'haskell', 'go', 'python', 'cpp' },
-        highlight = { enable = true },
-        indent = { enable = true, disable = { "python" } },
-        sync_install = true,
-        incremental_selection = { enable = true, keymaps = is },
-        textobjects = {
+  'nvim-treesitter/nvim-treesitter',
+  dependencies = { 'nvim-treesitter/nvim-treesitter-textobjects' },
+  build = ':TSUpdate',
+  event = 'BufReadPost',
+  dependencies = { 'nvim-treesitter/nvim-treesitter-textobjects' },
+  config = function()
+    local configs = require 'nvim-treesitter.configs'
+    local to = Key.TS.textobjects
+    local is = Key.TS.incremental_selection
+    configs.setup {
+      ensure_installed = { 'c', 'lua', 'vim', 'haskell', 'go', 'python', 'cpp' },
+      highlight = { enable = true },
+      indent = { enable = true, disable = { 'python' } },
+      sync_install = true,
+      incremental_selection = { enable = true, keymaps = is },
+      textobjects = {
         select = { enable = true, lookahead = true, keymaps = to.select },
         move = {
           enable = true,
@@ -34,6 +34,7 @@ return {
           border = S.Border,
           peek_definition_code = to.lsp_interop,
         },
-      }}
-    end
-  }
+      },
+    }
+  end,
+}
