@@ -1,6 +1,7 @@
 alias ll='ls -la'
 alias la='ls -A'
 alias cd='z'
+alias ping="ping -c 10 -s 92 -i .1"
 
 # I can't type leave me alone
 alias claer='clear'
@@ -23,8 +24,10 @@ alias desktop='~/.config/herbstluftwm/switcher.py desktop && herbstclient reload
 alias mirror='~/.config/herbstluftwm/switcher.py mirror && herbstclient reload'
 
 # Uni
-alias cafetch='wget -O ~/uni/comm_alg/CA-2024.pdf -e robots=off -A pdf -r -l1 https://www.math.lmu.de/\~axr/CA-2024.pdf'
-alias ca='open ~/uni/comm_alg/CA-2024.pdf'
+alias fafetch='~/uni/fa/fafetch.sh'
+alias fa='zathura ~/uni/fa/fa_script.pdf &'
+# alias cafetch='wget -O ~/uni/comm_alg/CA-2024.pdf -e robots=off -A pdf -r -l1 https://www.math.lmu.de/\~axr/CA-2024.pdf'
+# alias ca='open ~/uni/comm_alg/CA-2024.pdf'
 # alias algu='open ~/studium/algebra/ueb/*.pdf(om[1]) && c ~/studium/algebra/ueb/latex_exercises'
 
 # VSCode
@@ -67,7 +70,6 @@ alias opacity='~/pallisupercoding/opacity/opacity.py'
 alias fontsize='~/pallisupercoding/fontsize/fontsize.py'
 
 # Spcietify
-alias spicetify='~/.spicetify/spicetify'
 alias spot='~/.spot.sh'
 
 # Grip
