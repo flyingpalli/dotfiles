@@ -17,9 +17,13 @@ def main():
         subprocess.run(
             args=["python", "/home/paskal/pallisupercoding/fontsize/fontsize.py", "14"]
         )
-    elif val in ["desktop", "mirror"]:
+    elif val == "mirror":
         subprocess.run(
-            args=["python", "/home/paskal/pallisupercoding/fontsize/fontsize.py", "11"]
+            args=["python", "/home/paskal/pallisupercoding/fontsize/fontsize.py", "16"]
+        )
+    elif val == "desktop":
+        subprocess.run(
+            args=["python", "/home/paskal/pallisupercoding/fontsize/fontsize.py", "14"]
         )
 
     os.system(f"cp {val}_autostart autostart")

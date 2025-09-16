@@ -14,15 +14,15 @@ xsetroot -solid '#1e1e2e'
 compton &
 nitrogen --restore &
 setxkbmap -model pc104 -layout us,de -option grp:alt_space_toggle
-hc spawn sh ~/.config/polybar/desktop-launch.sh
+hc spawn sh ~/.config/polybar/mirror-launch.sh
 
 # do multi monitor setup here, e.g.:
 hc detect_monitors
 xrandr \
  --dpi 156 \
  --output eDP-1 --mode 1920x1080 --rate 60 --pos 0x0 --primary \
- --output HDMI-1 --mode 1920x1080 --rate 75 --pos 0x0 \
- --output DP-1 --off \
+ --output DP-1 --mode 1920x1080 --rate 75 --pos 0x0 \
+ --output HDMI-1 --off \
  --output DP-2 --off
 
 echo "Xft.dpi: 156" | xrdb -merge
