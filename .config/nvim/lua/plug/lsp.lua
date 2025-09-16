@@ -104,6 +104,12 @@ return {
           })
         end
 
+        -- Add this block for clangd-specific keymaps
+        if client and client.name == 'clangd' then
+          -- Keymap to switch between source and header files
+          map('<leader>ch', vim.cmd.LspClangdSwitchSourceHeader, 'Switch Source/Header')
+        end
+
         -- The following code creates a keymap to toggle inlay hints in your
         -- code, if the language server you are using supports them
         --

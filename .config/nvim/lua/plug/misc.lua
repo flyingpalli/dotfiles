@@ -37,6 +37,7 @@ return {
   },
   {
     'folke/flash.nvim',
+    lazy = true,
     opts = {
       labels = 'asdfghjklqwertyuiopzxcvbnm',
       label = {

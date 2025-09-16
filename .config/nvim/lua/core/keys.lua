@@ -5,8 +5,6 @@ local map = F.map
 local bmap = F.bmap
 local cmd = vim.cmd
 
-map('n', '<leader>ch', '<cmd>ClangdSwitchSourceHeader<CR>')
-
 -- Move multiple lines in visual mode
 map('x', 'J', [[:'<,'>m '>+1<CR>gv=gv]], 'Move selection down')
 map('x', 'K', [[:'<,'>m '<-2<CR>gv=gv]], 'Move selection up')
