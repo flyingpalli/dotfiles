@@ -18,10 +18,10 @@ hc spawn sh ~/.config/polybar/desktop-launch.sh
 
 # do multi monitor setup here, e.g.:
 # hc detect_monitors
-hc set_monitors 1920x1080+2560+0
+hc set_monitors 1920x1080+0+0
 xrandr \
  --dpi 96 \
- --output eDP-1 --mode 2560x1600 --rate 60 --pos 0x0 \
+ --output eDP-1 --off \
  --output HDMI-1 --mode 1920x1080 --rate 75 --pos 2560x0 --primary \
  --output DP-1 --off \
  --output DP-2 --off
