@@ -6,6 +6,8 @@ alias ping="ping -c 10 -s 92 -i .1"
 # I can't type leave me alone
 alias claer='clear'
 
+alias ipad='sudo systemctl stop ufw && uxplay'
+
 # Display brightness
 alias brighter='sudo brightnessctl -d intel_backlight s +20%'
 alias darker='sudo brightnessctl -d intel_backlight s 20%-'
@@ -26,6 +28,7 @@ alias mirror='~/.config/herbstluftwm/switcher.py mirror && herbstclient reload'
 # Uni
 alias fafetch='~/uni/fa/fafetch.sh'
 alias fa='zathura ~/uni/fa/fa_script.pdf &'
+alias dbs='zath ~/Documents/Studium/25wise/dbs/dbs_all_slides_ws26_handout.pdf'
 # alias cafetch='wget -O ~/uni/comm_alg/CA-2024.pdf -e robots=off -A pdf -r -l1 https://www.math.lmu.de/\~axr/CA-2024.pdf'
 # alias ca='open ~/uni/comm_alg/CA-2024.pdf'
 # alias algu='open ~/studium/algebra/ueb/*.pdf(om[1]) && c ~/studium/algebra/ueb/latex_exercises'
