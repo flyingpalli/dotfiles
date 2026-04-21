@@ -2,26 +2,81 @@ return { -- Autocompletion
   'hrsh7th/nvim-cmp',
   event = 'InsertEnter',
   dependencies = {
-    -- Snippet Engine & its associated nvim-cmp source
     {
       'L3MON4D3/LuaSnip',
+      version = 'v2.*', -- Use a stable version
       build = (function()
         if vim.fn.has 'win32' == 1 or vim.fn.executable 'make' == 0 then
           return
         end
         return 'make install_jsregexp'
       end)(),
-      dependencies = {
-        -- `friendly-snippets` contains a variety of premade snippets.
-        --    See the README about individual language/framework/plugin snippets:
-        --    https://github.com/rafamadriz/friendly-snippets
-        -- {
-        --   'rafamadriz/friendly-snippets',
-        --   config = function()
-        --     require('luasnip.loaders.from_vscode').lazy_load()
-        --   end,
-        -- },
-      },
+      dependencies = { 'rafamadriz/friendly-snippets' },
+      config = function()
+        local ls = require 'luasnip'
+        local s = ls.snippet
+        local i = ls.insert_node
+        local t = ls.text_node
+
+        require('luasnip.loaders.from_vscode').lazy_load()
+
+        ls.add_snippets('tex', {
+          s('bit', { -- 's' for snippet, 'bit' is the trigger
+            t { '\\begin{itemize}', '\t' }, -- 't' for text_node. We add text and a tab
+            i(1), -- 'i' for insert_node. This is placeholder 1, where your cursor will land.
+            t { '', '\\end{itemize}' }, -- More text. The empty string ensures it's on a new line.
+          }),
+        })
+        ls.add_snippets('tex', {
+          s('benum', { -- 's' for snippet, 'bit' is the trigger
+            t { '\\begin{enumerate}', '\t' }, -- 't' for text_node. We add text and a tab
+            i(1), -- 'i' for insert_node. This is placeholder 1, where your cursor will land.
+            t { '', '\\end{enumerate}' }, -- More text. The empty string ensures it's on a new line.
+          }),
+        })
+        ls.add_snippets('tex', {
+          s('bal', { -- 's' for snippet, 'bit' is the trigger
+            t { '\\begin{align}', '\t' }, -- 't' for text_node. We add text and a tab
+            i(1), -- 'i' for insert_node. This is placeholder 1, where your cursor will land.
+            t { '', '\\end{align}' }, -- More text. The empty string ensures it's on a new line.
+          }),
+        })
+        ls.add_snippets('tex', {
+          s('bsal', { -- 's' for snippet, 'bit' is the trigger
+            t { '\\begin{align*}', '\t' }, -- 't' for text_node. We add text and a tab
+            i(1), -- 'i' for insert_node. This is placeholder 1, where your cursor will land.
+            t { '', '\\end{align*}' }, -- More text. The empty string ensures it's on a new line.
+          }),
+        })
+        ls.add_snippets('tex', {
+          s('sec', { -- 's' for snippet, 'bit' is the trigger
+            t { '\\section{' },
+            i(1),
+            t { '}' },
+          }),
+        })
+        ls.add_snippets('tex', {
+          s('secs', { -- 's' for snippet, 'bit' is the trigger
+            t { '\\section*{' },
+            i(1),
+            t { '}' },
+          }),
+        })
+        ls.add_snippets('tex', {
+          s('ssec', { -- 's' for snippet, 'bit' is the trigger
+            t { '\\subsection{' },
+            i(1),
+            t { '}' },
+          }),
+        })
+        ls.add_snippets('tex', {
+          s('ssecs', { -- 's' for snippet, 'bit' is the trigger
+            t { '\\subsection*{' },
+            i(1),
+            t { '}' },
+          }),
+        })
+      end,
     },
     'saadparwaiz1/cmp_luasnip',
 
@@ -53,7 +108,7 @@ return { -- Autocompletion
         ['<C-f>'] = cmp.mapping.scroll_docs(4),
 
         -- Accept ([y]es) the completion.
-        ['<C-y>'] = cmp.mapping.confirm { select = true },
+        ['<Tab>'] = cmp.mapping.confirm { select = true },
 
         -- If you prefer more traditional completion keymaps,
         -- you can uncomment the following lines

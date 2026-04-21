@@ -2,7 +2,6 @@ return {
   { 'nvim-lua/plenary.nvim', lazy = true },
   { 'nvim-tree/nvim-web-devicons', lazy = true },
   { 'tpope/vim-surround', event = { 'CursorHold', 'CursorHoldI' } },
-  { 'tpope/vim-sleuth', event = { 'BufNewFile', 'BufReadPost' } },
   {
     'numToStr/Comment.nvim',
     event = { 'CursorHold', 'CursorHoldI' },

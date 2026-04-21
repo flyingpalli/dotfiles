@@ -150,7 +150,6 @@ return {
       pylsp = {
         settings = {
           pylsp = {
-            format_on_save = true,
             plugins = {
               pycodestyle = {
                 enabled = false,
@@ -162,7 +161,7 @@ return {
                 enabled = false,
               },
               flake8 = {
-                enabled = true,
+                enabled = false,
               },
             },
           },
@@ -186,14 +185,15 @@ return {
     })
     require('mason-tool-installer').setup { ensure_installed = ensure_installed }
 
-    require('mason-lspconfig').setup {
-      handlers = {
-        function(server_name)
-          local server = servers[server_name] or {}
-          server.capabilities = vim.tbl_deep_extend('force', {}, capabilities, server.capabilities or {})
-          require('lspconfig')[server_name].setup(server)
-        end,
-      },
-    }
+    for server_name, server in pairs(servers) do
+      server.capabilities = vim.tbl_deep_extend('force', {}, capabilities, server.capabilities or {})
+      if vim.lsp.config then
+        vim.lsp.config(server_name, server)
+      else
+        require('lspconfig')[server_name].setup(server)
+      end
+    end
+
+    require('mason-lspconfig').setup {}
   end,
 }

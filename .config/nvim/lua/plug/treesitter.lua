@@ -12,6 +12,8 @@ return {
       ensure_installed = { 'c', 'lua', 'vim', 'haskell', 'go', 'python', 'cpp' },
       highlight = { enable = true },
       indent = { enable = true, disable = { 'python' } },
+      tabstop = 4,
+      shiftwidth = 4,
       sync_install = true,
       incremental_selection = { enable = true, keymaps = is },
       textobjects = {

@@ -14,6 +14,14 @@ map({ 'n', 'x' }, '<Space>', '', 'Disable moving cursor with space')
 
 vim.keymap.set('n', '<Esc>', '<cmd>nohlsearch<CR>')
 
+vim.keymap.set({ 'i', 'c' }, '<M-a>', 'ä', { noremap = true, silent = true, desc = 'Insert German Character' })
+vim.keymap.set({ 'i', 'c' }, '<M-o>', 'ö', { noremap = true, silent = true, desc = 'Insert German Character' })
+vim.keymap.set({ 'i', 'c' }, '<M-u>', 'ü', { noremap = true, silent = true, desc = 'Insert German Character' })
+vim.keymap.set({ 'i', 'c' }, '<M-s>', 'ß', { noremap = true, silent = true, desc = 'Insert German Character' })
+vim.keymap.set({ 'i', 'c' }, '<M-A>', 'Ä', { noremap = true, silent = true, desc = 'Insert German Character' })
+vim.keymap.set({ 'i', 'c' }, '<M-O>', 'Ö', { noremap = true, silent = true, desc = 'Insert German Character' })
+vim.keymap.set({ 'i', 'c' }, '<M-U>', 'Ü', { noremap = true, silent = true, desc = 'Insert German Character' })
+
 -- Diagnostic keymaps
 vim.keymap.set('n', '<leader>q', vim.diagnostic.setloclist, { desc = 'Open diagnostic [Q]uickfix list' })
 
